@@ -18,6 +18,8 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.lineEdit_width.textEdited.connect(lambda: self.calc_from_width())
         self.lineEdit_height.textEdited.connect(lambda: self.calc_from_height())
+        self.lineEdit_aspect_width.textEdited.connect(lambda: self.calc_from_height())
+        self.lineEdit_aspect_height.textEdited.connect(lambda: self.calc_from_width())
         self.pushButton_multiplier.clicked.connect(lambda: self.multiply())
 
     def calc_from_width(self):

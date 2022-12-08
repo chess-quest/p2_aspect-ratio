@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>214</width>
-    <height>246</height>
+    <width>300</width>
+    <height>345</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>214</width>
-    <height>214</height>
+    <width>300</width>
+    <height>345</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>246</width>
-    <height>246</height>
+    <width>300</width>
+    <height>345</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -126,7 +126,7 @@
      <string>Height</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_multiplyer">
+   <widget class="QPushButton" name="pushButton_multiplier">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -136,16 +136,16 @@
      </rect>
     </property>
     <property name="text">
-     <string>Multiplyer</string>
+     <string>Multiplier</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_output">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>150</y>
+      <y>240</y>
       <width>161</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -170,13 +170,173 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_filename">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>150</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>File name</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_filename">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_save">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>200</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_preview">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Preview</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_resampling">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Resampling
+filter</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_nearest">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>50</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nearest</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>185</x>
+      <y>10</y>
+      <width>21</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_lanczos">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>80</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Lanczos</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_bilinear">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>110</y>
+      <width>82</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bilinear</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_Bicubic">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>140</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bicubic</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_box">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>170</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Box</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_hamming">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>200</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hamming</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>214</width>
+     <width>300</width>
      <height>21</height>
     </rect>
    </property>

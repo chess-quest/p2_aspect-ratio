@@ -4,6 +4,9 @@ from functions import *
 from view import *
 from PIL import Image
 
+QtWidgets.QApplication.setAttribute(QtCore.Qt.ApplicationAttribute.AA_EnableHighDpiScaling, True)
+QtWidgets.QApplication.setAttribute(QtCore.Qt.ApplicationAttribute.AA_UseHighDpiPixmaps, True)
+
 
 def clean_input(value: str) -> float:
     """

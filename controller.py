@@ -93,7 +93,7 @@ class Controller(QMainWindow, Ui_MainWindow):
         except PIL.UnidentifiedImageError:
             self.label_output.setText('Given file is not a readable\nimage format')
         except ValueError:
-            self.label_output.setText("Please enter non-zero values")
+            self.label_output.setText("Please enter a greater than zero\npositive integer")
 
     def get_radio_button(self):
         if self.radioButton_nearest.isChecked():

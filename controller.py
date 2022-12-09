@@ -5,7 +5,14 @@ from view import *
 from PIL import Image
 
 
-def clean_input(value):
+def clean_input(value: str) -> float:
+    """
+    Takes a given string and will return
+    it as a float if it can, else it returns a
+    zero
+    :param value: the given string
+    :return: a float from the string
+    """
     try:
         value = float(value)
     except ValueError:
@@ -16,6 +23,9 @@ def clean_input(value):
 
 class Controller(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
+        """
+        A class that controls the gui
+        """
         super().__init__(*args, **kwargs)
         self.setupUi(self)
         self.lineEdit_width.textEdited.connect(lambda: self.calc_from_width())
@@ -26,7 +36,11 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.pushButton_preview.clicked.connect(lambda: self.image_manip(0))
         self.pushButton_save.clicked.connect(lambda: self.image_manip(1))
 
-    def calc_from_width(self):
+    def calc_from_width(self) -> None:
+        """
+        Function that calculates height when the width is updated
+        :return: None
+        """
         self.label_output.setText("")
         val_width = clean_input(self.lineEdit_width.text())
         val_aspect_width = clean_input(self.lineEdit_aspect_width.text())
@@ -40,7 +54,11 @@ class Controller(QMainWindow, Ui_MainWindow):
             )
             self.lineEdit_height.setText(f'{val_height}')
 
-    def calc_from_height(self):
+    def calc_from_height(self) -> None:
+        """
+        Function that calculates width when the height is updated
+        :return: None
+        """
         self.label_output.setText("")
         val_height = clean_input(self.lineEdit_height.text())
         val_aspect_width = clean_input(self.lineEdit_aspect_width.text())
@@ -54,7 +72,11 @@ class Controller(QMainWindow, Ui_MainWindow):
             )
             self.lineEdit_width.setText(f'{val_width}')
 
-    def multiply(self):
+    def multiply(self) -> None:
+        """
+        Function that will update the height and width when given a multiplier
+        :return: None
+        """
         val_multiplier = clean_input(self.lineEdit_Multiplyer.text())
         val_height = clean_input(self.lineEdit_height.text())
         val_width = clean_input(self.lineEdit_width.text())
@@ -65,7 +87,12 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.lineEdit_height.setText(f'{val_multiplier * val_height}')
             self.lineEdit_width.setText(f'{val_multiplier * val_width}')
 
-    def check_empty_values(self):
+    def check_empty_values(self) -> tuple[int, int]:
+        """
+        Function that will make sure the height and width aren't
+        empty and return them afterwards or raise an error
+        :return: two ints
+        """
         val_width = clean_input(self.lineEdit_width.text())
         val_height = clean_input(self.lineEdit_height.text())
         if val_width == 0 or\
@@ -74,7 +101,13 @@ class Controller(QMainWindow, Ui_MainWindow):
         else:
             return round(val_width), round(val_height)
 
-    def image_manip(self, mode_value):
+    def image_manip(self, mode_value: int) -> None:
+        """
+        Function that when will take an input file, and resize it to the given width and height using the selected
+        resample filter
+        :param mode_value: an int that determines whether the image is previewed (0), or saved (1)
+        :return: None
+        """
         filename = self.lineEdit_filename.text()
         try:
             size = self.check_empty_values()
@@ -95,7 +128,11 @@ class Controller(QMainWindow, Ui_MainWindow):
         except ValueError:
             self.label_output.setText("Please enter a greater than zero\npositive integer")
 
-    def get_radio_button(self):
+    def get_radio_button(self) -> int:
+        """
+        Function that will check the state of the radio buttons and return an int representative of that radio button
+        :return: an int pertaining to a radio button
+        """
         if self.radioButton_nearest.isChecked():
             return 0
         elif self.radioButton_lanczos.isChecked():
